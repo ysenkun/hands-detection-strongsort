@@ -1,7 +1,9 @@
 # Track Hands Detection with StrongSORT
 
 This repository can track hands.  
-track.py uses MediaPipe Hands.
+track.py uses MediaPipe Hands.  
+
+※Also, [here](https://github.com/ysenkun/faces-detection-strongsort) is a repository for tracking faces
 
 ### :raising_hand: Reference:
 https://google.github.io/mediapipe/solutions/hands.html
