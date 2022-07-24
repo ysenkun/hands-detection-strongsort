@@ -6,7 +6,8 @@ track.py uses MediaPipe Hands.
 ※Also, [here](https://github.com/ysenkun/faces-detection-strongsort) is a repository for tracking faces
 
 ### :raising_hand: Reference:
-https://google.github.io/mediapipe/solutions/hands.html
+https://google.github.io/mediapipe/solutions/hands.html  
+https://github.com/dyhBUPT/StrongSORT
 
 
 ## Seting Up Environment
