@@ -23,3 +23,4 @@ Enter the video path and run it.
 $ python3 track.py --source vid.mp4 # video path
 ```
 
+![hand](https://user-images.githubusercontent.com/82140392/180654842-fb6bde4e-d152-40d8-8d4c-c674da446108.gif)
