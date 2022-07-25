@@ -7,7 +7,7 @@ track.py uses MediaPipe Hands.
 
 ### :raising_hand: Reference:
 https://google.github.io/mediapipe/solutions/hands.html  
-https://github.com/dyhBUPT/StrongSORT
+https://github.com/mikel-brostrom/Yolov5_StrongSORT_OSNet
 
 
 ## Seting Up Environment
