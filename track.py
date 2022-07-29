@@ -21,7 +21,7 @@ class main:
         self.max_num_hands = arg.max_hands
         self.min_detection_confidence = arg.min_confidence
 
-        self.save_vid = Truen
+        self.save_vid = True
         self.video_path = arg.source
         self.font_path = os.path.join(cv2.__path__[0],'qt','fonts','DejaVuSans.ttf')
 
