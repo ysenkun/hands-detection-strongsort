@@ -18,6 +18,8 @@ class main:
         self.mp_drawing = mp.solutions.drawing_utils
         self.mp_drawing_styles = mp.solutions.drawing_styles
         self.which_hand = {0:'Right',1:'Left'}
+        self.max_num_hands = arg.max_hands
+        self.min_detection_confidence = arg.min_confidence
 
         self.save_vid = True
         self.video_path = arg.source
@@ -27,7 +29,7 @@ class main:
         self.cfg = get_config()
         self.cfg.merge_from_file('strong_sort/configs/strong_sort.yaml')
         self.strong_sort_weights = 'strong_sort/deep/checkpoint/osnet_x0_25_market1501.pth'
-        self.device = 'cpu'
+        self.device = arg.device
 
         self.strongsort = StrongSORT(
             self.strong_sort_weights,
@@ -83,8 +85,8 @@ class main:
         # Run MediaPipe Hands.
         with self.mp_hands.Hands(
             static_image_mode=True,
-            max_num_hands=6,
-            min_detection_confidence=0.7) as hands:
+            max_num_hands=self.max_num_hands,
+            min_detection_confidence=self.min_detection_confidence) as hands:
 
             # Convert the BGR image to RGB, flip the image around y-axis for correct 
             # handedness output and process it with MediaPipe Hands.
@@ -171,8 +173,11 @@ class main:
         return frame
     
 def parse_arguments(argv):
-    parser = argparse.ArgumentParser() 
-    parser.add_argument('--source', type=str)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--source', type=str, help='your video path')
+    parser.add_argument('--device', default='cpu', type=str, help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
+    parser.add_argument('--max-hands', default=6, type=int, help='Number of hands to detect')
+    parser.add_argument('--min-confidence', default=0.7, type=float, help='min detection confidence')    
     return parser.parse_args(argv)
 
 if __name__ == '__main__':
